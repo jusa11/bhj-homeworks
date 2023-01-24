@@ -47,16 +47,16 @@ bookTag.forEach(item => {
 
 		if (item.closest('.book__control_background')) {
 
-			// Панель управления цветом текста
+			// Панель управления фоном
 			if (item.closest('.book__control').querySelector('.color_active')) {
 				item.closest('.book__control').querySelector('.color_active').classList.remove('color_active');
 			}
 
 			if (book.classList.contains(backIndex)) {
 				book.classList.remove(backIndex);
-				
+
 			}
-			/* изменение цвета текста */
+			/* изменение цвета фона */
 			item.classList.add('color_active');
 			book.classList.add(`book_bg-${item.getAttribute('data-bg-color')}`)
 
@@ -68,31 +68,3 @@ bookTag.forEach(item => {
 
 	item.addEventListener('click', selectSize);
 });
-
-
-
-
-// bookTag.forEach(item => {
-
-// 	const selectColor = (event) => {
-
-// 		/* Панель управления размером */
-// 		if (item.closest('.book__controls').querySelector('.color_active')) {
-// 			item.closest('.book__controls').querySelector('.font-size_active').classList.remove('color_active');
-// 		}
-
-// 		if (item.closest('.book').classList.contains(sizeIndex)) {
-// 			item.closest('.book').classList.remove(sizeIndex);
-// 		}
-
-// 		item.classList.add('color_active');
-// 		item.closest('.book').classList.add(`book_color-${item.getAttribute('data-text-color')}`)
-
-// 		sizeIndex = `book_color-${item.getAttribute('data-text-color')}`;
-
-// 		event.preventDefault();
-// 	}
-
-// 	item.addEventListener('click', selectColor);
-// });
-

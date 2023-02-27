@@ -19,13 +19,15 @@ const botQuestion = [
 	"Как делишки? Что делаешь?"
 ];
 
+
 // время HH:MM
 function getCurrentFormattedTime() {
 	let currentTime = new Date();
 	const hours = currentTime.getHours() < 10 ? `0${currentTime.getHours()}` : `${currentTime.getHours()}`;
 	const minutes = currentTime.getMinutes() < 10 ? `0${currentTime.getMinutes()}` : `${currentTime.getMinutes()}`;
+	const seconds = currentTime.getSeconds() < 10 ? `0${currentTime.getSeconds()}` : `${currentTime.getSeconds()}`;
 
-	return `${hours}:${minutes}`;
+	return `${hours}:${minutes} : ${seconds}`;
 }
 
 // ответ бота
@@ -59,7 +61,8 @@ chatWidgetInput.addEventListener('keydown', (e) => {
 	if (e.keyCode === 13) {
 
 		// не отправлять пустое сообшение
-		if (chatWidgetInput.value === '') {
+		if (chatWidgetInput.value == false) {
+			console.log('пусто')
 			return false;
 		}
 
@@ -97,7 +100,7 @@ function afkTime() {
 				</div>
 	 		</div>`;
 		scrollToBottom()
-	}, 30000)
+	}, 5000)
 }
 
 chatWidgetInput.addEventListener('focus', afkTime)
